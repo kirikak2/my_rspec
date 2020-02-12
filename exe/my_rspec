@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH << './spec'
+$LOAD_PATH << './lib'
+
+require "my_rspec"
+require "pathname"
+
+spec = MyRspec.instance_eval(File.read(Pathname.new(ARGV.first).relative_path_from("./")))
+spec.run
