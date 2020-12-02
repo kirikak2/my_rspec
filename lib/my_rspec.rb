@@ -9,6 +9,7 @@ end
 
 require "my_rspec/helpers/describe_clause"
 require "my_rspec/helpers/it_clause"
+require "my_rspec/helpers/let_clause"
 require "my_rspec/helpers/subject_clause"
 require "my_rspec/helpers/expect_clause"
 require "my_rspec/matchers"

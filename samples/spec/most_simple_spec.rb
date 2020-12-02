@@ -5,6 +5,8 @@ require 'pry'
 RSpec.describe TestModel, type: :model do
   describe "#test" do
     subject { TestModel.new.test }
+    let(:foo) { "foo" }
     it { expect(subject).to eq("Hello") }
+    it { expect(foo).to eq("foo") }
   end
 end

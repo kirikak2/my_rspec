@@ -24,9 +24,18 @@ module MyRspec
       self.failures << error 
     end
 
+    def has_error?
+      self.failed_examples > 0
+    end
+
     def print_result
       failures.each do |failure|
-        failure.print_result
+        if failure.respond_to?(:print_result)
+          failure.print_result
+        else
+          puts failure.message
+          puts failure.backtrace
+        end
       end
       puts "#{total_examples} example, #{failed_examples} failures"
     end

@@ -2,6 +2,7 @@ module MyRspec
   class Example
     include Helpers::SubjectClause
     include Helpers::ItClause
+    include Helpers::LetClause
 
     def initialize(name, params = {}, &block)
       @name = name
@@ -23,7 +24,7 @@ module MyRspec
             result.failed!(e)
             print "F"
           rescue => e
-            result.failed(e)
+            result.failed!(e)
             print "F"
           end
         end

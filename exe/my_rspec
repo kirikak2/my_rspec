@@ -11,7 +11,9 @@ start_time = Time.now
 result = spec.run
 end_time = Time.now
 
-puts "\n\nFailures:\n"
+if result.has_error?
+  puts "\n\nFailures:\n"
+end
+puts "\n\nFinished in #{(end_time - start_time).to_f} seconds"
 result.print_result
 
-puts "\n\nFinished in #{(end_time - start_time).to_f} seconds"

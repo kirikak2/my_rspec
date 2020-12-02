@@ -2,6 +2,7 @@ module MyRspec
   class ExampleGroup
     include Helpers::DescribeClause
     include Helpers::ItClause
+    include Helpers::LetClause
     include Helpers::ExpectClause
     include Helpers::SubjectClause
     include Matchers

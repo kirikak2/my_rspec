@@ -10,5 +10,9 @@ module MyRspec
     def subject
       @context[:subject] && @context[:subject].call
     end
+
+    def method_missing(name, *args)
+      @context[:parent].let_variables(name)
+    end
   end
 end
