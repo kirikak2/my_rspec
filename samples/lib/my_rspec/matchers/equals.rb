@@ -1,3 +1,5 @@
+require 'my_rspec/matchers/unmatch_error'
+
 module MyRspec
   module Matchers
     module Equals
@@ -12,11 +14,15 @@ module MyRspec
         end
 
         def ==(actual)
-          raise if expected != actual.value
+          if expected != actual.value
+            raise UnmatchError.new(expected, actual.value, "(compared using ==)")
+          end
         end
 
         def !=(actual)
-          raise if expected == actual.value
+          if expected == actual.value
+            raise UnmatchError.new(expected, actual.value, "(compared using !=)")
+          end
         end
       end
     end

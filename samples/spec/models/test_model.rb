@@ -1,6 +1,5 @@
 class TestModel
   def test
-    "Hello"
+    "Hollo"
   end
 end
-

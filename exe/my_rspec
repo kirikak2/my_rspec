@@ -7,4 +7,11 @@ require "my_rspec"
 require "pathname"
 
 spec = MyRspec.instance_eval(File.read(Pathname.new(ARGV.first).relative_path_from("./")))
-spec.run
+start_time = Time.now
+result = spec.run
+end_time = Time.now
+
+puts "\n\nFailures:\n"
+result.print_result
+
+puts "\n\nFinished in #{(end_time - start_time).to_f} seconds"

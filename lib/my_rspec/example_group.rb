@@ -24,10 +24,12 @@ module MyRspec
     end
 
     def run(context = {})
-      context.merge(parent: self, subject: @subject)
+      result = TestResult.new
+      new_context = context.merge(parent: self, subject: @subject)
       @examples.each do |e|
-        e.run(context)
+        result.merge!(e.run(new_context))
       end
+      result
     end
   end
 end

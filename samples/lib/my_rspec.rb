@@ -16,5 +16,7 @@ require "my_rspec/matchers"
 require "my_rspec/actual_value"
 require "my_rspec/example"
 require "my_rspec/example_group"
+require "my_rspec/test_case"
+require "my_rspec/test_result"
 
 RSpec = MyRspec
