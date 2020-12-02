@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'models/test_model'
-require 'irb'
+require 'pry'
 
 RSpec.describe TestModel, type: :model do
   describe "#test" do
