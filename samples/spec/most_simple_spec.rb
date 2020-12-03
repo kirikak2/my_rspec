@@ -9,4 +9,10 @@ RSpec.describe TestModel, type: :model do
     it { expect(subject).to eq("Hello") }
     it { expect(foo).to eq("foo") }
   end
+
+  describe "named subject" do
+    subject(:hello) { TestModel.new.test }
+    it { expect(subject).to eq("Hello") }
+    it { expect(hello).to eq("Hello") }
+  end
 end

@@ -3,6 +3,7 @@ module MyRspec
     include Helpers::SubjectClause
     include Helpers::ItClause
     include Helpers::LetClause
+    include Helpers::Variable
 
     def initialize(name, params = {}, &block)
       @name = name

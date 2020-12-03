@@ -12,7 +12,7 @@ module MyRspec
     end
 
     def method_missing(name, *args)
-      @context[:parent].let_variables(name)
+      @context[:parent].find_variable(name)
     end
   end
 end

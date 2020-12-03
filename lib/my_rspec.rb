@@ -12,6 +12,7 @@ require "my_rspec/helpers/it_clause"
 require "my_rspec/helpers/let_clause"
 require "my_rspec/helpers/subject_clause"
 require "my_rspec/helpers/expect_clause"
+require "my_rspec/helpers/variable"
 require "my_rspec/matchers"
 
 require "my_rspec/actual_value"

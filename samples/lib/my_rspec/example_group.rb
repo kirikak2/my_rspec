@@ -5,13 +5,14 @@ module MyRspec
     include Helpers::LetClause
     include Helpers::ExpectClause
     include Helpers::SubjectClause
+    include Helpers::Variable
     include Matchers
 
     def initialize(name_or_constant, params = {}, &block)
       @name = name_or_constant
       @params = params
       @examples = []
-      @let_variables = {}
+      @variables = {}
 
       @subject = 
         case name_or_constant

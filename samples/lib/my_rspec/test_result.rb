@@ -37,7 +37,7 @@ module MyRspec
           puts failure.backtrace
         end
       end
-      puts "#{total_examples} example, #{failed_examples} failures"
+      puts "#{total_examples} examples, #{failed_examples} failures"
     end
   end
 end
