@@ -5,15 +5,27 @@ $LOAD_PATH << './lib'
 
 require "my_rspec"
 require "pathname"
+require 'pry'
+require 'parser/current'
 
-spec = MyRspec.instance_eval(File.read(Pathname.new(ARGV.first).relative_path_from("./")))
+specs = []
+results = []
+ARGV.each do |arg|
+  spec_source = File.read(Pathname.new(arg).relative_path_from("./"))
+  parsed_spec = Parser::CurrentRuby.parse(spec_source)
+  specs << MyRspec.instance_eval(spec_source)
+end
 start_time = Time.now
-result = spec.run
+specs.each do |spec|
+  results << spec.run
+end
 end_time = Time.now
 
-if result.has_error?
-  puts "\n\nFailures:\n"
+results.each do |result|
+  if result.has_error?
+    puts "\n\nFailures:\n"
+  end
+  puts "\n\nFinished in #{(end_time - start_time).to_f} seconds"
+  result.print_result
 end
-puts "\n\nFinished in #{(end_time - start_time).to_f} seconds"
-result.print_result
 

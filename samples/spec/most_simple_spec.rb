@@ -14,5 +14,12 @@ RSpec.describe TestModel, type: :model do
     subject(:hello) { TestModel.new.test }
     it { expect(subject).to eq("Hello") }
     it { expect(hello).to eq("Hello") }
+    it "failed test" do
+      expect(true).to eq([
+        1,
+        2,
+        3,
+      ])
+    end
   end
 end
