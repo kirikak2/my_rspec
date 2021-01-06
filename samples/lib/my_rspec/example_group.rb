@@ -13,6 +13,7 @@ module MyRspec
       @params = params
       @examples = []
       @variables = {}
+      @sexp = nil
 
       @subject = 
         case name_or_constant
@@ -23,6 +24,12 @@ module MyRspec
         end
 
       instance_eval(&block)
+    end
+
+    def annotate_sexp(expect_sexp)
+      @examples.each do |example|
+        example.annotate_sexp(expect_sexp)
+      end
     end
 
     def run(context = {})

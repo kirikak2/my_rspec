@@ -6,14 +6,16 @@ $LOAD_PATH << './lib'
 require "my_rspec"
 require "pathname"
 require 'pry'
-require 'parser/current'
 
 specs = []
 results = []
 ARGV.each do |arg|
   spec_source = File.read(Pathname.new(arg).relative_path_from("./"))
-  parsed_spec = Parser::CurrentRuby.parse(spec_source)
-  specs << MyRspec.instance_eval(spec_source)
+  parser = MyRspec::SpecParser.new(spec_source)
+  spec = MyRspec.instance_eval(spec_source)
+  parser.search_node
+  spec.annotate_sexp(parser.parsed_list)
+  specs << spec
 end
 start_time = Time.now
 specs.each do |spec|

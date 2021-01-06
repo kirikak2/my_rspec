@@ -20,6 +20,7 @@ RSpec.describe TestModel, type: :model do
         2,
         3,
       ])
+      expect(false).to eq(true)
     end
   end
 end
